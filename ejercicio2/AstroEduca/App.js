@@ -1,20 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import SistemaSolarScreen from './src/screens/SistemaSolarScreen'; // Importa el componente de pantalla SistemaSolarScreen
+import SolScreen from './src/screens/SolScreen'; // Importa el componente de pantalla SolScreen
+import TierraScreen from './src/screens/TierraScreen'; // Importa el componente de pantalla TierraScreen
 
+// Crea la navegación de la barra de pestañas
+const Tab = createBottomTabNavigator();
+
+// Función principal de la aplicación
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Sistema Solar" component={SistemaSolarScreen} />
+        <Tab.Screen name="Sol" component={SolScreen} />
+        <Tab.Screen name="Tierra" component={TierraScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
